@@ -29,7 +29,7 @@ LIBS = -lgsl -lgslcblas -lgmpxx -lgmp
 INCLUDES= ./include/
 SOURCE_PATH = ./src/
 BIN_PATH = ./bin/
-OBJ_PATH = 
+OBJ_PATH = ./obj/
 TESTS_PATH = ./tests/
 
 
@@ -716,7 +716,7 @@ $(BIN_PATH)max-eadp-tea-f: $(OBJ_PATH)common.o $(OBJ_PATH)adp-xor3.o $(OBJ_PATH)
 .PHONY: eadp-tea-f-tests
 eadp-tea-f-tests: $(BIN_PATH)eadp-tea-f-tests
 
-$(BIN_PATH)eadp-tea-f-tests: $(OBJ_PATH)common.o $(OBJ_PATH)adp-xor3.o $(OBJ_PATH)max-adp-xor3.o $(OBJ_PATH)max-adp-xor3-set.o $(OBJ_PATH) $(OBJ_PATH)adp-shift.o $(OBJ_PATH)tea.o $(OBJ_PATH)eadp-tea-f.o $(OBJ_PATH)eadp-tea-f-tests.o
+$(BIN_PATH)eadp-tea-f-tests: $(OBJ_PATH)common.o $(OBJ_PATH)adp-xor3.o $(OBJ_PATH)max-adp-xor3.o $(OBJ_PATH)max-adp-xor3-set.o $(OBJ_PATH)adp-shift.o $(OBJ_PATH)tea.o $(OBJ_PATH)eadp-tea-f.o $(OBJ_PATH)eadp-tea-f-tests.o
 	$(CC) $(LFLAGS) $(EADP_TEA_F_TESTS_OBJ) -o $(BIN_PATH)eadp-tea-f-tests $(LIBS)
 
 $(OBJ_PATH)tea.o: 
