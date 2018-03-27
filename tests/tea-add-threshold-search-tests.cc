@@ -475,7 +475,7 @@ int main()
 
   printf("[%s:%d] Computing pDDT. It may take up to 1 minute. Please wait...\n", __FILE__, __LINE__);
 
-  test_add_trails_graphviz_plot();
-  //  test_tea_add_trail_search();
+  //test_add_trails_graphviz_plot();
+  test_tea_add_trail_search();
   //  test_trail18();
 }
