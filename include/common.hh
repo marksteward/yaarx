@@ -382,7 +382,7 @@ typedef unsigned long long timestamp_t;
 timestamp_t get_timestamp();
 
 // Function declarations
-//uint32_t random32();
+uint32_t random32();
 //uint64_t random64();
 WORD_T xrandom();
 uint32_t hw8(const uint32_t x);

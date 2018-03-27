@@ -29,7 +29,7 @@ LIBS = -lgsl -lgslcblas -lgmpxx -lgmp
 INCLUDES= ./include/
 SOURCE_PATH = ./src/
 BIN_PATH = ./bin/
-OBJ_PATH = ./obj/
+OBJ_PATH = 
 TESTS_PATH = ./tests/
 
 
@@ -1012,4 +1012,12 @@ $(BIN_PATH)norx-lwc-search-tests: $(OBJ_PATH)common.o $(OBJ_PATH)norx-common.o $
 
 $(OBJ_PATH)norx-lwc-search-tests.o: $(TESTS_PATH)norx-lwc-search-tests.cc
 	$(CC) $(CFLAGS) -I$(INCLUDES) -I../codingtool/includes/ $(TESTS_PATH)norx-lwc-search-tests.cc -o $(OBJ_PATH)norx-lwc-search-tests.o
+
+
+.PHONY: deps-ubuntu deps-termux
+deps-ubuntu:
+	apt-get install libgsl0-dev libgmp-dev libboost-dev
+
+deps-termux:
+	pkg install gsl-dev libgmp-dev boost-dev
 
