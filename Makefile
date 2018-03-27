@@ -539,13 +539,13 @@ xtea-add-threshold-search: $(BIN_PATH)xtea-add-threshold-search
 $(BIN_PATH)xtea-add-threshold-search: $(OBJ_PATH)common.o $(OBJ_PATH)adp-xor.o $(OBJ_PATH)max-adp-xor.o $(OBJ_PATH)adp-xor-fi.o $(OBJ_PATH)max-adp-xor-fi.o $(OBJ_PATH)adp-shift.o $(OBJ_PATH)xtea.o $(OBJ_PATH)adp-xtea-f-fk.o $(OBJ_PATH)tea.o $(OBJ_PATH)eadp-tea-f.o $(OBJ_PATH)adp-xor3.o $(OBJ_PATH)max-adp-xor3.o $(OBJ_PATH)max-adp-xor3-set.o $(OBJ_PATH)adp-tea-f-fk.o $(OBJ_PATH)tea-f-add-pddt.o $(OBJ_PATH)xtea-f-add-pddt.o $(OBJ_PATH)xtea-add-threshold-search.o $(OBJ_PATH)xtea-add-threshold-search-tests.o
 	$(CC) $(LFLAGS) $(XTEA_ADD_THRESHOLD_SEARCH_TESTS_OBJ) -o $(BIN_PATH)xtea-add-threshold-search $(LIBS)
 
-$(OBJ_PATH)xtea-f-add-pddt.o: 
+$(OBJ_PATH)xtea-f-add-pddt.o: $(SOURCE_PATH)xtea-f-add-pddt.cc
 	$(CC) $(CFLAGS) -I$(INCLUDES) $(SOURCE_PATH)xtea-f-add-pddt.cc -o $(OBJ_PATH)xtea-f-add-pddt.o
 
-$(OBJ_PATH)xtea-add-threshold-search.o:
+$(OBJ_PATH)xtea-add-threshold-search.o: $(SOURCE_PATH)xtea-add-threshold-search.cc
 	$(CC) $(CFLAGS) -I$(INCLUDES) $(SOURCE_PATH)xtea-add-threshold-search.cc -o $(OBJ_PATH)xtea-add-threshold-search.o
 
-$(OBJ_PATH)xtea-add-threshold-search-tests.o:
+$(OBJ_PATH)xtea-add-threshold-search-tests.o: $(TESTS_PATH)xtea-add-threshold-search-tests.cc
 	$(CC) $(CFLAGS) -I$(INCLUDES) $(TESTS_PATH)xtea-add-threshold-search-tests.cc -o $(OBJ_PATH)xtea-add-threshold-search-tests.o
 
 # --- ADP-XTEA-F-FK ---
@@ -558,10 +558,10 @@ adp-xtea-f-fk-tests: $(BIN_PATH)adp-xtea-f-fk-tests
 $(BIN_PATH)adp-xtea-f-fk-tests: $(OBJ_PATH)common.o $(OBJ_PATH)adp-xor.o $(OBJ_PATH)max-adp-xor.o $(OBJ_PATH)adp-xor-fi.o $(OBJ_PATH)max-adp-xor-fi.o $(OBJ_PATH)adp-shift.o $(OBJ_PATH)xtea.o $(OBJ_PATH)adp-xtea-f-fk.o $(OBJ_PATH)adp-xtea-f-fk-tests.o
 	$(CC) $(LFLAGS) $(ADP_XTEA_F_FK_TESTS_OBJ) -o $(BIN_PATH)adp-xtea-f-fk-tests $(LIBS)
 
-$(OBJ_PATH)adp-xtea-f-fk.o: 
+$(OBJ_PATH)adp-xtea-f-fk.o: $(SOURCE_PATH)adp-xtea-f-fk.cc
 	$(CC) $(CFLAGS) -I$(INCLUDES) $(SOURCE_PATH)adp-xtea-f-fk.cc -o $(OBJ_PATH)adp-xtea-f-fk.o
 
-$(OBJ_PATH)adp-xtea-f-fk-tests.o: 
+$(OBJ_PATH)adp-xtea-f-fk-tests.o: $(TESTS_PATH)adp-xtea-f-fk-tests.cc
 	$(CC) $(CFLAGS) -I$(INCLUDES) $(TESTS_PATH)adp-xtea-f-fk-tests.cc -o $(OBJ_PATH)adp-xtea-f-fk-tests.o
 
 # --- XDP-XTEA-F-FK ---
@@ -574,13 +574,13 @@ xdp-xtea-f-fk-tests: $(BIN_PATH)xdp-xtea-f-fk-tests
 $(BIN_PATH)xdp-xtea-f-fk-tests: $(OBJ_PATH)common.o $(OBJ_PATH)xdp-add.o $(OBJ_PATH)max-xdp-add.o $(OBJ_PATH)xtea.o $(OBJ_PATH)xdp-xtea-f-fk.o $(OBJ_PATH)xdp-xtea-f-fk-tests.o
 	$(CC) $(LFLAGS) $(XDP_XTEA_F_FK_TESTS_OBJ) -o $(BIN_PATH)xdp-xtea-f-fk-tests $(LIBS)
 
-$(OBJ_PATH)xdp-xtea-f-fk.o: 
+$(OBJ_PATH)xdp-xtea-f-fk.o: $(SOURCE_PATH)xdp-xtea-f-fk.cc
 	$(CC) $(CFLAGS) -I$(INCLUDES) $(SOURCE_PATH)xdp-xtea-f-fk.cc -o $(OBJ_PATH)xdp-xtea-f-fk.o
 
-$(OBJ_PATH)xdp-xtea-f-fk-tests.o: 
+$(OBJ_PATH)xdp-xtea-f-fk-tests.o: $(TESTS_PATH)xdp-xtea-f-fk-tests.cc
 	$(CC) $(CFLAGS) -I$(INCLUDES) $(TESTS_PATH)xdp-xtea-f-fk-tests.cc -o $(OBJ_PATH)xdp-xtea-f-fk-tests.o
 
-$(OBJ_PATH)xtea.o: 
+$(OBJ_PATH)xtea.o: $(SOURCE_PATH)xtea.cc
 	$(CC) $(CFLAGS) -I$(INCLUDES) $(SOURCE_PATH)xtea.cc -o $(OBJ_PATH)xtea.o
 
 # --- XDP-TEA-F-FK ---
@@ -593,10 +593,10 @@ xdp-tea-f-fk-tests: $(BIN_PATH)xdp-tea-f-fk-tests
 $(BIN_PATH)xdp-tea-f-fk-tests: $(OBJ_PATH)common.o $(OBJ_PATH)tea.o $(OBJ_PATH)xdp-tea-f-fk.o $(OBJ_PATH)xdp-tea-f-fk-tests.o
 	$(CC) $(LFLAGS) $(XDP_TEA_F_FK_TESTS_OBJ) -o $(BIN_PATH)xdp-tea-f-fk-tests $(LIBS)
 
-$(OBJ_PATH)xdp-tea-f-fk.o: 
+$(OBJ_PATH)xdp-tea-f-fk.o: $(SOURCE_PATH)xdp-tea-f-fk.cc
 	$(CC) $(CFLAGS) -I$(INCLUDES) $(SOURCE_PATH)xdp-tea-f-fk.cc -o $(OBJ_PATH)xdp-tea-f-fk.o
 
-$(OBJ_PATH)xdp-tea-f-fk-tests.o: 
+$(OBJ_PATH)xdp-tea-f-fk-tests.o: $(TESTS_PATH)xdp-tea-f-fk-tests.cc
 	$(CC) $(CFLAGS) -I$(INCLUDES) $(TESTS_PATH)xdp-tea-f-fk-tests.cc -o $(OBJ_PATH)xdp-tea-f-fk-tests.o
 
 # --- TEA-ADD-THRESHOLD-SEARCH
@@ -609,10 +609,10 @@ tea-add-threshold-search: $(BIN_PATH)tea-add-threshold-search
 $(BIN_PATH)tea-add-threshold-search: $(OBJ_PATH)common.o $(OBJ_PATH)adp-xor3.o $(OBJ_PATH)max-adp-xor3.o $(OBJ_PATH)max-adp-xor3-set.o $(OBJ_PATH)adp-shift.o $(OBJ_PATH)tea.o $(OBJ_PATH)eadp-tea-f.o $(OBJ_PATH)adp-tea-f-fk.o $(OBJ_PATH)tea-f-add-pddt.o $(OBJ_PATH)tea-add-threshold-search.o $(OBJ_PATH)tea-add-threshold-search-tests.o
 	$(CC) $(LFLAGS) $(TEA_ADD_THRESHOLD_SEARCH_TESTS_OBJ) -o $(BIN_PATH)tea-add-threshold-search $(LIBS)
 
-$(OBJ_PATH)tea-add-threshold-search.o:
+$(OBJ_PATH)tea-add-threshold-search.o: $(SOURCE_PATH)tea-add-threshold-search.cc
 	$(CC) $(CFLAGS) -I$(INCLUDES) $(SOURCE_PATH)tea-add-threshold-search.cc -o $(OBJ_PATH)tea-add-threshold-search.o
 
-$(OBJ_PATH)tea-add-threshold-search-tests.o:
+$(OBJ_PATH)tea-add-threshold-search-tests.o: $(TESTS_PATH)tea-add-threshold-search-tests.cc
 	$(CC) $(CFLAGS) -I$(INCLUDES) $(TESTS_PATH)tea-add-threshold-search-tests.cc -o $(OBJ_PATH)tea-add-threshold-search-tests.o
 
 # --- TEA-F-ADD-PDDT ---
@@ -719,19 +719,19 @@ eadp-tea-f-tests: $(BIN_PATH)eadp-tea-f-tests
 $(BIN_PATH)eadp-tea-f-tests: $(OBJ_PATH)common.o $(OBJ_PATH)adp-xor3.o $(OBJ_PATH)max-adp-xor3.o $(OBJ_PATH)max-adp-xor3-set.o $(OBJ_PATH)adp-shift.o $(OBJ_PATH)tea.o $(OBJ_PATH)eadp-tea-f.o $(OBJ_PATH)eadp-tea-f-tests.o
 	$(CC) $(LFLAGS) $(EADP_TEA_F_TESTS_OBJ) -o $(BIN_PATH)eadp-tea-f-tests $(LIBS)
 
-$(OBJ_PATH)tea.o: 
+$(OBJ_PATH)tea.o: $(SOURCE_PATH)tea.cc
 	$(CC) $(CFLAGS) -I$(INCLUDES) $(SOURCE_PATH)tea.cc -o $(OBJ_PATH)tea.o
 
-$(OBJ_PATH)eadp-tea-f.o: 
+$(OBJ_PATH)eadp-tea-f.o: $(SOURCE_PATH)eadp-tea-f.cc
 	$(CC) $(CFLAGS) -I$(INCLUDES) $(SOURCE_PATH)eadp-tea-f.cc -o $(OBJ_PATH)eadp-tea-f.o
 
-$(OBJ_PATH)eadp-tea-f-program.o: 
+$(OBJ_PATH)eadp-tea-f-program.o: $(SOURCE_PATH)eadp-tea-f-program.cc
 	$(CC) $(CFLAGS) -I$(INCLUDES) $(SOURCE_PATH)eadp-tea-f-program.cc -o $(OBJ_PATH)eadp-tea-f-program.o
 
-$(OBJ_PATH)max-eadp-tea-f-program.o: 
+$(OBJ_PATH)max-eadp-tea-f-program.o: $(SOURCE_PATH)max-eadp-tea-f-program.cc
 	$(CC) $(CFLAGS) -I$(INCLUDES) $(SOURCE_PATH)max-eadp-tea-f-program.cc -o $(OBJ_PATH)max-eadp-tea-f-program.o
 
-$(OBJ_PATH)eadp-tea-f-tests.o: 
+$(OBJ_PATH)eadp-tea-f-tests.o: $(TESTS_PATH)eadp-tea-f-tests.cc
 	$(CC) $(CFLAGS) -I$(INCLUDES) $(TESTS_PATH)eadp-tea-f-tests.cc -o $(OBJ_PATH)eadp-tea-f-tests.o
 
 # --- MAX-XDP-ADD ---
@@ -825,13 +825,13 @@ max-adp-xor-fi-tests: $(BIN_PATH)max-adp-xor-fi-tests
 $(BIN_PATH)max-adp-xor-fi-tests: $(OBJ_PATH)common.o $(OBJ_PATH)max-adp-xor.o $(OBJ_PATH)adp-xor-fi.o $(OBJ_PATH)max-adp-xor-fi.o $(OBJ_PATH)max-adp-xor-fi-tests.o
 	$(CC) $(LFLAGS) $(MAX_ADP_XOR_FI_TESTS_OBJ) -o $(BIN_PATH)max-adp-xor-fi-tests $(LIBS)
 
-$(OBJ_PATH)max-adp-xor-fi.o: 
+$(OBJ_PATH)max-adp-xor-fi.o: $(SOURCE_PATH)max-adp-xor-fi.cc
 	$(CC) $(CFLAGS) -I$(INCLUDES) $(SOURCE_PATH)max-adp-xor-fi.cc -o $(OBJ_PATH)max-adp-xor-fi.o
 
-$(OBJ_PATH)max-adp-xor-fi-program.o: 
+$(OBJ_PATH)max-adp-xor-fi-program.o: $(SOURCE_PATH)max-adp-xor-fi-program.cc
 	$(CC) $(CFLAGS) -I$(INCLUDES) $(SOURCE_PATH)max-adp-xor-fi-program.cc -o $(OBJ_PATH)max-adp-xor-fi-program.o
 
-$(OBJ_PATH)max-adp-xor-fi-tests.o: 
+$(OBJ_PATH)max-adp-xor-fi-tests.o: $(TESTS_PATH)max-adp-xor-fi-tests.cc
 	$(CC) $(CFLAGS) -I$(INCLUDES) $(TESTS_PATH)max-adp-xor-fi-tests.cc -o $(OBJ_PATH)max-adp-xor-fi-tests.o
 
 # --- ADP-XOR-FI ---
@@ -1010,16 +1010,16 @@ adp-shift-tests: $(BIN_PATH)adp-shift-tests
 $(BIN_PATH)adp-shift-tests: $(OBJ_PATH)common.o $(OBJ_PATH)adp-shift.o $(OBJ_PATH)adp-shift-tests.o
 	$(CC) $(LFLAGS) $(ADP_SHIFT_TESTS_OBJ) -o $(BIN_PATH)adp-shift-tests $(LIBS)
 
-$(OBJ_PATH)adp-lsh-program.o:
+$(OBJ_PATH)adp-lsh-program.o: $(SOURCE_PATH)adp-lsh-program.cc
 	$(CC) $(CFLAGS) -I$(INCLUDES) $(SOURCE_PATH)adp-lsh-program.cc -o $(OBJ_PATH)adp-lsh-program.o
 
-$(OBJ_PATH)adp-rsh-program.o:
+$(OBJ_PATH)adp-rsh-program.o: $(SOURCE_PATH)adp-rsh-program.cc
 	$(CC) $(CFLAGS) -I$(INCLUDES) $(SOURCE_PATH)adp-rsh-program.cc -o $(OBJ_PATH)adp-rsh-program.o
 
-$(OBJ_PATH)adp-shift.o:
+$(OBJ_PATH)adp-shift.o: $(SOURCE_PATH)adp-shift.cc
 	$(CC) $(CFLAGS) -I$(INCLUDES) $(SOURCE_PATH)adp-shift.cc -o $(OBJ_PATH)adp-shift.o
 
-$(OBJ_PATH)adp-shift-tests.o:
+$(OBJ_PATH)adp-shift-tests.o: $(TESTS_PATH)adp-shift-tests.cc
 	$(CC) $(CFLAGS) -I$(INCLUDES) $(TESTS_PATH)adp-shift-tests.cc -o $(OBJ_PATH)adp-shift-tests.o
 
 # --- XDP-ADD-PDDT ---
